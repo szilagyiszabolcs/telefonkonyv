@@ -5,14 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:telefonkönyv"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Telefonkönyv" Height="200" Width="800">
     <Grid>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="145" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="274"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="145" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="284"/>
         <Label Content="Név: " HorizontalAlignment="Left" Margin="25,23,0,0" VerticalAlignment="Top"/>
         <Label Content="Tel.: " HorizontalAlignment="Left" Margin="25,66,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="79,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Name="TextBoxName"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="79,70,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Name="TextBoxNumber"/>
-        <Button Content="Hozzáadás" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="99,128,0,0" Name="Add" Click="Add_Click"/>
-        <ListBox HorizontalAlignment="Left" Height="145" Margin="350,10,0,0" VerticalAlignment="Top" Width="336" Name="listbox"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="79,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" Name="TextBoxName"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="79,69,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="181" Name="TextBoxNumber"/>
+        <Button Content="Hozzáadás" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="25,124,0,0" Name="Add" Click="Add_Click"/>
+        <Button Content="Módosítás" HorizontalAlignment="Left" Margin="115,124,0,0" VerticalAlignment="Top" Width="75" Name="Edit" Click="Edit_Click"/>
+        <Button Content="Törlés" HorizontalAlignment="Left" Margin="209,124,0,0" VerticalAlignment="Top" Width="75" Name="Delete" Click="Delete_Click"/>
+        <DataGrid HorizontalAlignment="Left" Height="145" Margin="332,10,0,0" VerticalAlignment="Top" Width="450" Name="adatok" AutoGenerateColumns="False" SelectedCellsChanged="Adatok_SelectedCellsChanged" Grid.ColumnSpan="2" BorderBrush="Black">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Név" Binding="{Binding Name}" Width="7*"/>
+                <DataGridTextColumn Header="Telefonszám" Binding="{Binding Number}" Width="5*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
